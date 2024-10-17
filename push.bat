@@ -1,11 +1,14 @@
 @echo off
 setlocal
 
-:: Check if a commit message was provided
+:: Set a default commit message
+set "defaultMessage=Auto commit: Changes made on %date% at %time%"
+
+:: Check if a commit message was provided; if not, use the default
 if "%~1"=="" (
-    echo Please provide a commit message.
-    echo Usage: git_auto.bat "Your commit message"
-    exit /b 1
+    set "commitMessage=%defaultMessage%"
+) else (
+    set "commitMessage=%~1"
 )
 
 :: Navigate to your Git repository directory (change this to your repo path)
