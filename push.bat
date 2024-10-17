@@ -18,7 +18,7 @@ if "%~1"=="" (
 git add .
 
 :: Commit changes with the provided message
-git commit -m "%~1"
+git commit -m "%commitMessage%"
 
 :: Push changes to the remote repository
 git push
